@@ -16,6 +16,12 @@ credentials/
 .agents/
 agent-events.jsonl
 
+# Local-only project notes and history
+CLAUDE.md
+feature_suggestions.txt
+version_history.txt
+version_history_archive.md
+
 # Dependencies and build outputs
 node_modules/
 dist/

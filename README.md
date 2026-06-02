@@ -38,8 +38,7 @@
 ├── package.json
 ├── package-lock.json
 ├── preload.js
-├── version_history.txt
-└── version_history_archive.md
+└── README.md
 ```
 
 ## 安裝與啟動
@@ -92,6 +91,7 @@ npm run build:dir
 - 金鑰與憑證檔，例如 `*.pem`、`*.p12`、`*.pfx`、`*.key`
 - `secrets/`、`credentials/`
 - `.claude/`、`.codex/`、`.agents/`、`agent-events.jsonl`
+- `CLAUDE.md`、`feature_suggestions.txt`、`version_history.txt`、`version_history_archive.md`
 - `node_modules/`、`dist/`、`output/`、`release/`
 - `*.exe`、`*.blockmap`
 
@@ -103,7 +103,7 @@ npm run build:dir
 - `main.js` 使用 `contextIsolation: true` 與 `nodeIntegration: false`。
 - `package.json` 目前沒有 `test`、`lint` 或 `typecheck` script。
 - 使用者介面文字以繁體中文為主。
-- 新增、修復、重構、封裝或發布後，請更新 `version_history.txt`。
+- 本機可保留開發筆記與版本紀錄；公開 GitHub 倉庫不提交本機代理設定、建議清單或版本歷史檔。
 
 ## 授權
 
