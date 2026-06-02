@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密貨幣資產翻倍計算器</title>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            indigo: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            emerald: { 400: '#34d399', 500: '#10b981', 600: '#059669' },
+            amber: { 400: '#fbbf24', 500: '#f59e0b' },
+            cyan: { 400: '#22d3ee', 500: '#06b6d4' },
+            slate: { 100: '#f1f5f9', 700: '#334155', 800: '#1e293b', 900: '#0f172a', 950: '#020617' }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .glass-panel {
+        @apply bg-[#0E1223]/95 border border-slate-700/60 rounded-lg shadow-lg shadow-black/25;
+      }
+    }
+  </style>
+  <style>
+    * { font-family: 'Inter', system-ui, sans-serif; }
+    :root {
+      --color-primary: #F59E0B;
+      --color-on-primary: #0F172A;
+      --color-accent: #8B5CF6;
+      --color-background: #020617;
+      --color-surface: #0E1223;
+      --color-surface-raised: #151B2D;
+      --color-border: #334155;
+      --color-muted: #94A3B8;
+    }
+    body {
+      background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.72) 0%, rgba(2, 6, 23, 0) 36%),
+        repeating-linear-gradient(90deg, rgba(148, 163, 184, 0.035) 0 1px, transparent 1px 96px),
+        #020617;
+    }
+    button, input, select, textarea { font: inherit; }
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+    .transition-default { transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1); }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type="number"] { -moz-appearance: textfield; }
+
+    .overflow-y-auto::-webkit-scrollbar { width: 6px; }
+    .overflow-y-auto::-webkit-scrollbar-track { background: transparent; }
+    .overflow-y-auto::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.35); border-radius: 3px; }
+    .overflow-y-auto::-webkit-scrollbar-thumb:hover { background: rgba(100, 116, 139, 0.55); }
+
+    input[type="range"] { -webkit-appearance: none; background: transparent; }
+    input[type="range"]::-webkit-slider-runnable-track { height: 6px; background: #1e293b; border-radius: 3px; }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      border: none;
+      margin-top: -6px;
+      cursor: pointer;
+      box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.16);
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      background: #fbbf24;
+      box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.18);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+
+  <!-- React CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+
+  <!-- Babel Standalone -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+  <div id="root"></div>
+
+  <!-- 主要 React 應用程式 (Babel 即時編譯) -->
+  <script type="text/babel" data-type="module" src="./CryptoCalculator.jsx?v=settings-api-language-20260603"></script>
+
+  <!-- 本地檔案備援警告 -->
+  <script>
+    window.addEventListener('load', () => {
+      if (window.location.protocol === 'file:') {
+        setTimeout(() => {
+          if (!document.getElementById('root').innerHTML) {
+            document.getElementById('root').innerHTML = `
+              <div class="fixed inset-0 flex items-center justify-center bg-slate-950 text-white z-50">
+                <div class="glass-panel p-8 max-w-lg text-center mx-4">
+                  <h2 class="text-2xl text-red-500 font-bold mb-4">無法載入本地模組 (CORS 限制)</h2>
+                  <p class="text-slate-300">由於瀏覽器安全性限制，直接雙擊開啟 HTML 無法載入本地的 .jsx 模組。</p>
+                  <p class="text-slate-300 mb-4">請透過本機伺服器開啟此頁面，例如在終端機執行：</p>
+                  <pre class="bg-slate-800 p-4 rounded text-emerald-400 select-all overflow-x-auto">python -m http.server 8000</pre>
+                  <p class="text-slate-300 mt-4">或使用 VS Code 的 Live Server 擴充功能。</p>
+                </div>
+              </div>
+            `;
+          }
+        }, 1500);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "name": "crypto-doubling-calculator",
+  "version": "1.0.1",
+  "description": "加密貨幣翻倍計算器 — 智慧倉位分配桌面應用",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "build:dir": "electron-builder --win --x64 --dir"
+  },
+  "author": "Kai",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.kai.crypto-doubling-calculator",
+    "productName": "加密貨幣翻倍計算器",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "CryptoCalculator.jsx"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerLanguages": ["zh_TW", "en_US"],
+      "shortcutName": "加密貨幣翻倍計算器"
+    }
+  }
+}
