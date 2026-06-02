@@ -1,5 +1,13 @@
 ===== 版本變更日誌 =====
 
+[v29] 2026-06-03
+docs: 撰寫 GitHub 專案 README
+- Commit: 本次提交
+- 新增：依照目前 Electron / React 桌面程式撰寫 README.md，包含功能介紹、技術架構、專案結構、安裝啟動、打包流程與外部匯率來源
+- 安全：補充敏感資料與 .env / 金鑰 / 本機設定 / 建置產物不得提交的注意事項
+- 程式碼變化：未修改應用邏輯
+- 變更檔案：README.md, version_history.txt
+
 [v28] 2026-06-03
 chore: 準備安全上傳 GitHub 專案
 - Commit: 本次提交
